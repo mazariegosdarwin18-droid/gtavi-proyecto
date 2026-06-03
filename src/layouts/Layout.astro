@@ -1,3 +1,6 @@
+---
+import KeepScrolling from "@/assets/keep-scrolling.svg";
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,18 +9,88 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Landing GTA VI</title>
 	</head>
-	<body>
+	<body>   
 		<slot />
+		<KeepScrolling class="fixed bottom-3 right-0 left-0 mx-auto text-pink-300 drop-shadow-2x1 animate-bounce-pulse"
+		>  
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	@import "tailwindcss";
+	@theme {
+		--font-sans: "GTA", systen-ui, sans-serif;
+		--font-narrow: "GTANarrow", system-ui, sans-serif;
+
+		--animate-bounce-pulse: bounce-pulse 2s ease-in-out infinite;
+	}
+
+	@keyframes bounce-pulse {
+		0%{
+			transform: translateY(0);
+			scale: 0.8;
+			opacity: 0.8;
+		}
+		50% {
+			transform: translateY(-5px);
+			scale: 1;
+			scale: 1;
+		}
+		100% {
+			transform: translateY(0);
+			scale: 0.8;
+			opacity: 0.8;
+		}
+	}
+	 {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	 }
+
 	body {
+		background: black;
+		color: white; 
 		margin: 0;
 		width: 100%;
-		height: 100%;
+	
+
+		min-height: 300vh;
+	
+
+		overflow-x: hidden;
+		overscroll-behavior: none;
+	}
+		@font-face {
+		font-family: "GTA";  
+		src: url("/font/gta-regular.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+		@font-face {
+		font-family: "GTA";
+		src: url("/font/gta-bold.woff") format("woff");
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
+		@font-face {
+		font-family: "GTA";
+		src: url("/font/gta-semibold.woff") format("woff");
+		font-weight: 600;
+		font-style: normal;
+		font-display: swap;
+	}
+		@font-face {
+		font-family: "GTANarrow";
+		src: url("/font/gta-narrow.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	
 	}
 </style>
